@@ -42,10 +42,10 @@ def readinput(inputname):
 		#corenum = lastc - firstc
 		#print corenum
 		if corenum < 1:
-			print 'First line should be: first_core last_core'
+			print('First line should be: first_core last_core')
 			error = 1
 	else:
-		print 'First line should be: first_core last_core'
+		print('First line should be: first_core last_core')
 		error = 1
 
 	#get each program parameters
@@ -69,7 +69,7 @@ def readinput(inputname):
 			count = 0
 			rawinfo[1].append([name]+line)
 			if len(line) != 11:
-				print 'Invalid paraneters:', infile[i]
+				print('Invalid paraneters:', infile[i])
 				error = 1
 #C: work_sec work_ns span_sec span_ns period_sec period_ns deadline_sec deadline_ns relative_release_sec relative_release_ns num_iters
 			#get work, period, span
@@ -78,12 +78,12 @@ def readinput(inputname):
 			period = int(line[4])*1000000000+int(line[5])
 			deadline = int(line[6])*1000000000+int(line[7])
 			if period != deadline:
-				print 'period not equal deadline:', infile[i]
+				print('period not equal deadline:', infile[i])
 				error = 1
 			util = 1.0*work/period
 			#print util
 			if util >= 1.0 and 2*span > period:
-				print 'critical path length too long:', span, period
+				print('critical path length too long:', span, period)
 				error = 1
 			#info: ['prog_name', period, util, worst_case, span]
 			prog = [name, period, util, work, span]
@@ -96,12 +96,12 @@ def readinput(inputname):
 	#print info#,rawinfo
 	#no parameters for the last program
 	if count == 1:
-		print 'no parameters for the last program'
+		print('no parameters for the last program')
 		error = 1
 	if error:
 		return [], 0, infile
 	else:
-		info.sort(sortutil)
+		info.sort(key=sortutil)
 		#print info
 		#print rawinfo
 		return info, corenum, rawinfo
@@ -112,7 +112,7 @@ def partition(inputname, rawinfo, info, corenum, balance):
 	prognum = len(info)
 	#invalid input file
 	if prognum == 0:
-		print 'Invalid rtps file, not schedulable.'
+		print('Invalid rtps file, not schedulable.')
 		sched = 1
 		outinfo = []
 		return
@@ -155,13 +155,13 @@ def partition(inputname, rawinfo, info, corenum, balance):
 	options = 0
 	if sched == 2 or outinfo == []:
 		options = 2
-		print 'Not schedulable, no partition available.'
+		print('Not schedulable, no partition available.')
 	elif sched == 1 and len(outinfo) > 0:
 		options = 1
-		print 'Not guaranteed schedulable, partition available, may try.'
+		print('Not guaranteed schedulable, partition available, may try.')
 	else:
 		options = 0
-		print 'Guaranteed schedulable.'
+		print('Guaranteed schedulable.')
 	p2 = open(inputname+'.rtps', 'w');
 	#if guaranteed, first line is 1
 	#if not guaranteed, first line is 0
@@ -172,14 +172,14 @@ def partition(inputname, rawinfo, info, corenum, balance):
 	#print outinfo
 	if outinfo != []:
 		firstc = rawinfo[2][0]
-		rawinfo[0].sort(sortname)
-		rawinfo[1].sort(sortname)
-		outinfo.sort(sortname)
+		rawinfo[0].sort(key=sortname)
+		rawinfo[1].sort(key=sortname)
+		outinfo.sort(key=sortname)
 		#print rawinfo
 		#print outinfo
 		for i in range(0, len(outinfo)):
 			if rawinfo[0][i][0] != outinfo[i][0]:
-				print 'Weird, names not match', info[i][0], outinfo[i][0]
+				print('Weird, names not match', info[i][0], outinfo[i][0])
 			else:
 				line = ''
 				fakename = rawinfo[0][i][0]
@@ -188,7 +188,7 @@ def partition(inputname, rawinfo, info, corenum, balance):
 				if name:
 					line = line + name.group('name') + ' '
 				else:
-					print 'Weird, names not match', fakename
+					print('Weird, names not match', fakename)
 				for each in rawinfo[0][i][1:]:
 					line = line + each + ' '
 				line = line.strip(' ')+'\n'
@@ -213,7 +213,7 @@ def partition(inputname, rawinfo, info, corenum, balance):
 def run_cluster():
 	inputname = 'egtaskset'
 	inputname = sys.argv[1]
-	print inputname
+	print(inputname)
 	(info, corenum, rawinfo) = readinput(inputname)
 	balance = 3
 	if len(sys.argv) > 2:

@@ -6,48 +6,82 @@ import copy
 import re
 
 #sort according to segments' prog_name, sub_id
+'''
 def sortname(e1, e2):
 	if e1[0] != e2[0]:
 		return cmp(e1[0], e2[0])
 	else:
 		return cmp(e1[2], e2[2])
 		#return 1
+'''
+def sortname(e1):
+	return (e1[0],e1[2])
 
 #sort according to segments' prog_name id
+'''
 def sortid(e1, e2):
 	a1 = re.match(r'^.+_(?P<id>\d+)', e1[0])
 	b1 = int(a1.group('id'))
 	a2 = re.match(r'^.+_(?P<id>\d+)', e2[0])
 	b2 = int(a2.group('id'))
 	return cmp(b1, b2)
+'''
+def sortid(e1):
+	a1 = re.match(r'^.+_(?P<id>\d+)', e1[0])
+	return int(a1.group('id'))
 
 #sort according to progs' util (high to low)
+'''
 def sortutil(e1, e2):
 	return -1*cmp(e1[2], e2[2])
+'''
+def sortutil(e1):
+	return -1*e1[2]
 
 #sort according to progs' period (low to high)
+'''
 def sortperiod(e1, e2):
 	return cmp(e1[1], e2[1])
+'''
+def sortperiod(e1):
+	return e1[1]
 
 #sort according to progs' releasetime (low to high)
+'''
 def sortrelease(e1, e2):
 	if e1[8] != e2[8]:
 		return cmp(e1[8], e2[8])
 	else:
 		return cmp(e1[9], e2[9])
+'''
+def sortrelease(e1):
+	return (e1[8],e1[9])
 
 #sort according to progs' priority (high to low)
+'''
 def sortpriority(e1, e2):
 	return -1*cmp(e1[5], e2[5])
+'''
+def sortpriority(e1):
+	return -1*e1[5]
 
 #sort possible according to remaining util (high to low)
+'''
 def sortposs(e1, e2):
 	return -1*cmp(e1[1], e2[1])
+'''
+def sortposs(e1):
+	return -1*e1[1]
 
 #for 36#
 #sorthigh for highinfo
+'''
 def sorthigh(e1, e2):
 	return -1*cmp(e1[0], e2[0])
+'''
+def sorthigh(e1):
+	return -1*e1[0]
+
 
 #partition low util tasks
 #original or threshold
@@ -311,7 +345,7 @@ def loadbalance(lowcore, info, posscore, highid, corestat, corestr, outinfo):
 
 		#print coremax, utilmax, corestr[coremax]
 		flag = 0
-		corestr[coremax].sort(sortutil)
+		corestr[coremax].sort(key=sortutil)
 		for each in corestr[coremax]:
 			util = each[2]
 			a = re.match(r'^.+_(?P<id>\d+)', each[0])
@@ -387,7 +421,7 @@ def loadbalance(lowcore, info, posscore, highid, corestat, corestr, outinfo):
 					#	print each, coremin, availablestr#"!!"
 					#	change = 10
 					availablestr[coremin].append(newprog)
-					availablestr[coremin].sort(sortperiod)
+					availablestr[coremin].sort(key=sortperiod)
 					oldprog = each
 					flag = 1
 					change = 1
@@ -408,7 +442,7 @@ def loadbalance(lowcore, info, posscore, highid, corestat, corestr, outinfo):
 	#print '\t', availablestr, available
 	for core in available:
 		if availablestr[core] != []:
-			availablestr[core].sort(sortperiod)
+			availablestr[core].sort(key=sortperiod)
 			for i in range(0, len(availablestr[core])):
 				newprog = availablestr[core][i][0:-1]+[97-i, core, core]
 				outinfo.append(newprog)
@@ -438,7 +472,7 @@ def loadbalance(lowcore, info, posscore, highid, corestat, corestr, outinfo):
 	#2: Not schedulable, no partition available.
 def cluster_partition(info, prognum, corenum, option):
 	#sort util from high to low
-	info.sort(sortutil)
+	info.sort(key=sortutil)
 	#print info
 	outinfo = []
 
@@ -465,7 +499,7 @@ def cluster_partition(info, prognum, corenum, option):
 			#each[3] += 819200
 			each[4] *= 1.40
 			each[2] = 1.0*each[3]/each[1]
-		info.sort(sortutil)
+		info.sort(key=sortutil)
 	#print info
 
 	#for 36#
@@ -550,7 +584,7 @@ def cluster_partition(info, prognum, corenum, option):
 				elif eachhigh[6] <= 23 and eachhigh[7] > 23:
 					needchange = 1
 			if needchange == 1:
-				highinfo.sort(sorthigh)
+				highinfo.sort(key=sorthigh)
 				socket = [12, 12, 12]
 				for eachhigh in highinfo:
 					if eachhigh[0] <= socket[0]:
@@ -592,7 +626,7 @@ def cluster_partition(info, prognum, corenum, option):
 
 	#sort low tasks according to period
 	lowinfo = info[lowid:len(info)]
-	lowinfo.sort(sortperiod)
+	lowinfo.sort(key=sortperiod)
 	#print lowinfo
 	#scale low tasks
 	tmax = lowinfo[-1][1]
@@ -624,7 +658,7 @@ def cluster_partition(info, prognum, corenum, option):
 			elif eachhigh[6] <= 23 and eachhigh[7] > 23:
 				needchange = 1
 		if needchange == 1:
-			highinfo.sort(sorthigh)
+			highinfo.sort(key=sorthigh)
 			socket = [12, 12, 12]
 			for eachhigh in highinfo:
 				if eachhigh[0] <= socket[0]:
@@ -670,7 +704,7 @@ def cluster_partition(info, prognum, corenum, option):
 	posscore = []
 	highid = []
 	if len(possible) > 0:
-		possible.sort(sortposs)
+		possible.sort(key=sortposs)
 		for each in possible:
 			posscore.append(each[0])
 			highid.append(each[2])
@@ -701,7 +735,7 @@ def cluster_partition(info, prognum, corenum, option):
 		sched = original(lowcore, lowinfo, posscore, highid, corestat, corestr, outinfo, threshold)
 		#print corestat
 		if sched == 0:
-			info.sort(sortid)
+			info.sort(key=sortid)
 			change = loadbalance(lowcore, info, posscore, highid, corestat, corestr, outinfo)
 		#print corestat
 			#if change == 10:
@@ -746,7 +780,7 @@ def cluster_assign_core(allsub, prognum, corenum, option):
 	info = []
 
 	#sort according to name
-	allsub.sort(sortname)
+	allsub.sort(key=sortname)
 	#print '\t', allsub
 
 	name = ''
@@ -822,7 +856,7 @@ def single_simu(alljobs, hyper):
 			i += 1
 		if i < len(alljobs):
 			nextreltm = alljobs[i][8]
-		wait.sort(sortpriority)
+		wait.sort(key=sortpriority)
 	#	print 'wait', wait
 		#execute high priority
 	#	print 'time', time, 'nextreltm', nextreltm
@@ -881,8 +915,8 @@ def cluster_simulation(corestr, allsub):
 		#single task on single core
 		elif len(core) == 1 and core[0][6] == core[0][7]:
 			if core[0][2] > 1:
-				print '!!!impossible: high on single core'
-				print corestr
+				print('!!!impossible: high on single core')
+				print(corestr)
 			else:
 				continue
 		#if high util on multicore
@@ -893,7 +927,7 @@ def cluster_simulation(corestr, allsub):
 			for sub in allsub:
 				if sub[0] == core[0][0]:
 					high.append(sub)
-			high.sort(sortname)
+			high.sort(key=sortname)
 			#print high
 			numcore = core[0][7] - core[0][6]+1
 		#	numcore = 12
@@ -907,11 +941,11 @@ def cluster_simulation(corestr, allsub):
 			if exetime > core[0][1]:
 				tmp = 1.0*(core[0][3]-core[0][4])/(core[0][1]-core[0][4])
 				if math.ceil(tmp) <= numcore:
-					print core[0][1], exetime
-					print '!!!impossible: high task unschedulable'
-					print numcore, high
+					print(core[0][1], exetime)
+					print('!!!impossible: high task unschedulable')
+					print(numcore, high)
 				else:
-					print 'f'
+					print('f')
 				return 1
 			#print '\t',exetime, core[0][1]
 		else:
@@ -931,7 +965,7 @@ def cluster_simulation(corestr, allsub):
 				for i in range(0, pround):
 					job = prog[:]+[i*period, (i+1)*period]
 					alljobs.append(job)
-			alljobs.sort(sortrelease)
+			alljobs.sort(key=sortrelease)
 			#print alljobs
 			#simulate the execution
 			if single_simu(alljobs, hyper) == 1:
