@@ -5,6 +5,7 @@
 #include <sstream>
 #include <map>
 #include <omp.h>
+#include <unistd.h>
 #include "task.h"
 #include "timespec_functions.h"
 #include "histogram.h"
