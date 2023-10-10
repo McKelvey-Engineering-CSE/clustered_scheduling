@@ -7,6 +7,7 @@
 #include <cstdlib>
 #include <errno.h>
 #include <time.h>
+#include <string.h>
 
 typedef struct
 {
@@ -19,7 +20,7 @@ static volatile barrier_t *get_barrier(const char *name, int *error_flag)
 	int fd = shm_open(name, O_RDWR | O_CREAT, S_IRUSR | S_IWUSR);
 	if( fd == -1 )
 	{
-		perror("ERROR: single_use_barrier call to shm_open failed");
+		fprintf(stderr, "ERROR: single_use_barrier call to shm_open failed for name %s: %s. Perhaps it already exists in /dev/shm?\n", name, strerror(errno));
 		*error_flag = RT_GOMP_SINGLE_USE_BARRIER_SHM_OPEN_FAILED_ERROR;
 		return NULL;
 	}
