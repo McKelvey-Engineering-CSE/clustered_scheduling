@@ -15,7 +15,10 @@ def sortname(e1, e2):
 		#return 1
 '''
 def sortname(e1):
-	return (e1[0],e1[2])
+	return e1[0]
+# Note from Marion:
+# Don't know why it was also doing e1[2], since all names should be unique,
+# and since there isn't even always a [2] index in the list
 
 #sort according to segments' prog_name id
 '''
@@ -98,7 +101,7 @@ def original(lowcore, lowinfo, posscore, highid, corestat, corestr, outinfo, thr
 		util = lowinfo[i][2]
 		period = lowinfo[i][-1]
 		#min sumutil, min core
-		#print curcore, corestat
+		#print(curcore, corestat)
 		minutil = corestat[lowcore[curcore]][1]
 		mincore = curcore
 		#next fit ring
@@ -136,11 +139,11 @@ def original(lowcore, lowinfo, posscore, highid, corestat, corestr, outinfo, thr
 						curcore = 0
 					else:
 						curcore += 1
-				#print bound, sumutil, curcore
+				#print(bound, sumutil, curcore)
 		if count >= lowcorenum:
 			sched = 1
 			if corestat[lowcore[mincore]][1] + util >= 1:
-				#print "--------"
+				#print("--------")
 				#add one posscore to lowcore
 				if len(posscore) > 0:
 					addcore = posscore[0]
@@ -157,12 +160,12 @@ def original(lowcore, lowinfo, posscore, highid, corestat, corestr, outinfo, thr
 					corestr[addcore].append(newprog)
 					outinfo[progid][-1] = addcore - 1
 					corestr[outinfo[progid][-2]][0][-1] = addcore - 1
-					#print "try............."
-					#print possible
-					#print addcore, newprog
-					#print outinfo
-					#print corestr
-					#print corestat
+					#print("try.............")
+					#print(possible)
+					#print(addcore, newprog)
+					#print(outinfo)
+					#print(corestr)
+					#print(corestat)
 				else:
 					return 2
 			#put to minutil core
@@ -172,10 +175,10 @@ def original(lowcore, lowinfo, posscore, highid, corestat, corestr, outinfo, thr
 				newprog = lowinfo[i][0:-1]+[98-corestat[lowcore[mincore]][0], lowcore[mincore], lowcore[mincore]]
 				outinfo.append(newprog)
 				corestr[lowcore[mincore]].append(newprog)
-	#print "\t",outinfo
+	#print("\t",outinfo)
 	#if sched == 1:
-		#print "!!!!!!!!!!original\t"#, corestr, partedcore, lowcore, corestat
-	#print corestr
+		#print("!!!!!!!!!!original\t"#, corestr, partedcore, lowcore, corestat)
+	#print(corestr)
 	return sched
 
 #partition low util tasks
@@ -193,7 +196,7 @@ def worstfit(lowcore, lowinfo, posscore, highid, corestat, corestr, outinfo):
 		util = lowinfo[i][2]
 		period = lowinfo[i][-1]
 		#min sumutil, min core
-		#print curcore, corestat
+		#print(curcore, corestat)
 		minutil = corestat[lowcore[curcore]][1]
 		mincore = curcore
 		#next fit ring
@@ -236,11 +239,11 @@ def worstfit(lowcore, lowinfo, posscore, highid, corestat, corestr, outinfo):
 					curcore = 0
 				else:
 					curcore += 1
-				#print '\t',bound, sumutil, curcore
+				#print('\t',bound, sumutil, curcore)
 		if find == 0:
 			sched = 1
 			if corestat[lowcore[mincore]][1] + util >= 1:
-				#print "--------"
+				#print("--------")
 				#add one posscore to lowcore
 				if len(posscore) > 0:
 					addcore = posscore[0]
@@ -257,12 +260,12 @@ def worstfit(lowcore, lowinfo, posscore, highid, corestat, corestr, outinfo):
 					corestr[addcore].append(newprog)
 					outinfo[progid][-1] = addcore - 1
 					corestr[outinfo[progid][-2]][0][-1] = addcore - 1
-					#print "try............."
-					#print possible
-					#print addcore, newprog
-					#print outinfo
-					#print corestr
-					#print corestat
+					#print("try.............")
+					#print(possible)
+					#print(addcore, newprog)
+					#print(outinfo)
+					#print(corestr)
+					#print(corestat)
 				else:
 					return 2
 			#put to minutil core
@@ -286,10 +289,10 @@ def worstfit(lowcore, lowinfo, posscore, highid, corestat, corestr, outinfo):
 			outinfo.append(newprog)
 			corestr[lowcore[mincore]].append(newprog)
 
-	#print "\t",outinfo
+	#print("\t",outinfo)
 	#if sched == 1:
-	#	print "!!!!!!!!!!worstfit\t"#, corestr, partedcore, lowcore, corestat
-	#print corestr
+	#	print("!!!!!!!!!!worstfit\t"#, corestr, partedcore, lowcore, corestat)
+	#print(corestr)
 	return sched
 
 #partition low util tasks
@@ -298,12 +301,12 @@ def worstfit(lowcore, lowinfo, posscore, highid, corestat, corestr, outinfo):
 #1: Not guaranteed schedulable, partition available, may try.
 #2: Not schedulable, no partition available.
 def loadbalance(lowcore, info, posscore, highid, corestat, corestr, outinfo):
-	#print '\n\n'
-	#print lowcore
-	#print info
-	#print corestat
-	#print corestr
-	#print outinfo
+	print('\n\n')
+	# print(lowcore)
+	# print(info)
+	# print(corestat)
+	# print(corestr)
+	# print(outinfo)
 
 	change = 0
 	available = []
@@ -343,7 +346,7 @@ def loadbalance(lowcore, info, posscore, highid, corestat, corestr, outinfo):
 			#return change
 			break
 
-		#print coremax, utilmax, corestr[coremax]
+		#print(coremax, utilmax, corestr[coremax])
 		flag = 0
 		corestr[coremax].sort(key=sortutil)
 		for each in corestr[coremax]:
@@ -351,7 +354,7 @@ def loadbalance(lowcore, info, posscore, highid, corestat, corestr, outinfo):
 			a = re.match(r'^.+_(?P<id>\d+)', each[0])
 			nameid = int(a.group('id'))
 			period = info[nameid][5]
-			#print period, nameid
+			#print(period, nameid)
 			if corestat[coremin][0] == 0:
 				corestat[coremin][0] += 1
 				corestat[coremin][1] += util
@@ -384,17 +387,17 @@ def loadbalance(lowcore, info, posscore, highid, corestat, corestr, outinfo):
 						if sumutil >= utilmax or sumutil > bound:
 							canadd = 2
 							break
-						#print '!',np, rp, sumutil, bound,coremin
+						#print('!',np, rp, sumutil, bound,coremin)
 						canadd = 1 
 						#continue
 					np += 1.0
 					rp = 1.0*eachprog[5]/corestat[coremin][2]
 					sumutil += eachprog[2]
 					bound = np*(math.pow(rp,(1/np))-1)+2/rp-1
-					#print '!!',np, rp, sumutil, bound,coremin
-					#print each
+					#print('!!',np, rp, sumutil, bound,coremin)
+					#print(each)
 					if sumutil >= utilmax or sumutil > bound:
-						#print '!!!',sumutil, utilmax, utilmin
+						#print('!!!',sumutil, utilmax, utilmin)
 						canadd = 2
 						break
 				#np = corestat[coremin][0]+1.0
@@ -418,7 +421,7 @@ def loadbalance(lowcore, info, posscore, highid, corestat, corestr, outinfo):
 					#corestr[coremin].append(newprog)
 					newprog = info[nameid][0:6]
 					#if period < availablestr[coremin][0][5]:
-					#	print each, coremin, availablestr#"!!"
+					#	print(each, coremin, availablestr#"!!")
 					#	change = 10
 					availablestr[coremin].append(newprog)
 					availablestr[coremin].sort(key=sortperiod)
@@ -434,12 +437,12 @@ def loadbalance(lowcore, info, posscore, highid, corestat, corestr, outinfo):
 			corestr[coremax].remove(oldprog)
 			outinfo.remove(oldprog)
 		#if change == 1:
-		#	print coremax, coremin
-		#	print corestat
-		#	print corestr
-		#	print outinfo
+		#	print(coremax, coremin)
+		#	print(corestat)
+		#	print(corestr)
+		#	print(outinfo)
 		#	return change
-	#print '\t', availablestr, available
+	# print('\t', availablestr, available)
 	for core in available:
 		if availablestr[core] != []:
 			availablestr[core].sort(key=sortperiod)
@@ -448,7 +451,7 @@ def loadbalance(lowcore, info, posscore, highid, corestat, corestr, outinfo):
 				outinfo.append(newprog)
 				corestr[core].append(newprog)
 	#if change == 10:
-	#	print outinfo
+	#	print(outinfo)
 	return change
 
 
@@ -473,7 +476,7 @@ def loadbalance(lowcore, info, posscore, highid, corestat, corestr, outinfo):
 def cluster_partition(info, prognum, corenum, option):
 	#sort util from high to low
 	info.sort(key=sortutil)
-	#print info
+	#print(info)
 	outinfo = []
 
 	#corestat: [[np(numprog), sumutil, mint], ]
@@ -500,7 +503,7 @@ def cluster_partition(info, prognum, corenum, option):
 			each[4] *= 1.40
 			each[2] = 1.0*each[3]/each[1]
 		info.sort(key=sortutil)
-	#print info
+	#print(info)
 
 	#for 36#
 	if option == 3 or option == 5 or option == 6:
@@ -526,14 +529,14 @@ def cluster_partition(info, prognum, corenum, option):
 		#high util >= 1?
 		if util >= threshold:
 			if partedcore+1 == corenum:
-				#print "not core for high tasks", info
+				#print("not core for high tasks", info)
 				return 2, [], []
 			#number of cores assigned to high tasks
 			#numcore = int(math.ceil(2*util))
 			#number = (C-L)(P-L)
 			tmp = 1.0*(work - span)/(period - span)
-			#print work, span, period
-			#print util, tmp
+			print(work, span, period)
+			print(util, tmp)
 			numcore = int(math.ceil(tmp))
 			if numcore == 1:
 				numcore = 2
@@ -541,7 +544,7 @@ def cluster_partition(info, prognum, corenum, option):
 			if option == 6:
 				if numcore - tmp <= 0.02*(5+numcore):
 					numcore+=1
-			#print numcore, info[i]
+			#print(numcore, info[i])
 			#put the possible core to posscore list
 			if numcore > tmp and numcore > 2:
 				possible.append([partedcore+numcore,numcore-tmp,i])
@@ -549,32 +552,32 @@ def cluster_partition(info, prognum, corenum, option):
 			outinfo.append(newprog)
 			corestr[partedcore+1].append(newprog)
 			partedcore += numcore
-			#print partedcore, corenum
+			#print(partedcore, corenum)
 			#not core for high tasks
 			if partedcore >= corenum:
-				#print "not core for high tasks"
+				#print("not core for high tasks")
 				return 2, [], []
 		else:
 			lowid = i
 			break
-	#print outinfo
+	#print(outinfo)
 
 	partedcore += 1
 	numlowcore = corenum - partedcore
-	#print numlowcore
+	#print(numlowcore)
 	#if len(info) == 1:
-	#	print numlowcore, i, info, lowid, len(info)
+	#	print(numlowcore, i, info, lowid, len(info))
 
-	#print i+1, len(info)
+	#print(i+1, len(info))
 	#if i+1 >= len(info):
 	if lowid == len(info):
-		#print 'no low'
+		#print('no low')
 		#for 36#
 		if option == 6 and corenum == 36:
-			#print "36 cores, four sockets"
-			#print corestr
-			#print outinfo
-			#print possible
+			#print("36 cores, four sockets")
+			#print(corestr)
+			#print(outinfo)
+			#print(possible)
 			needchange = 0
 			highinfo = []
 			for eachhigh in outinfo:
@@ -609,15 +612,15 @@ def cluster_partition(info, prognum, corenum, option):
 					newhigh = copy.deepcopy(eachhigh[1])
 					newhigh[6] = (sid+1)*12-socket[sid]-eachhigh[0]
 					newhigh[7] = (sid+1)*12-socket[sid]-1
-					#print sid, socket[sid],newhigh
+					#print(sid, socket[sid],newhigh)
 					#possible
 					outinfo.remove(eachhigh[1])
 					outinfo.append(newhigh)
 					corestr[eachhigh[1][6]].remove(eachhigh[1])
 					corestr[newhigh[6]].append(newhigh)
-				#print highinfo
-				#print outinfo
-				#print corestr
+				#print(highinfo)
+				#print(outinfo)
+				#print(corestr)
 			#for analysis#
 			#return -10, corestr, outinfo
 		return 0, corestr, outinfo
@@ -627,7 +630,7 @@ def cluster_partition(info, prognum, corenum, option):
 	#sort low tasks according to period
 	lowinfo = info[lowid:len(info)]
 	lowinfo.sort(key=sortperiod)
-	#print lowinfo
+	#print(lowinfo)
 	#scale low tasks
 	tmax = lowinfo[-1][1]
 	tmin = lowinfo[0][1]
@@ -645,10 +648,10 @@ def cluster_partition(info, prognum, corenum, option):
 	#for 36#
 	fitsocket = 0
 	if option == 6 and corenum == 36:
-		#print "36 cores, four sockets"
-		#print corestr
-		#print outinfo
-		#print possible
+		#print("36 cores, four sockets")
+		#print(corestr)
+		#print(outinfo)
+		#print(possible)
 		needchange = 0
 		highinfo = []
 		for eachhigh in outinfo:
@@ -686,7 +689,7 @@ def cluster_partition(info, prognum, corenum, option):
 					newhigh = copy.deepcopy(eachhigh[1])
 					newhigh[6] = (sid+1)*12-socket[sid]-eachhigh[0]
 					newhigh[7] = (sid+1)*12-socket[sid]-1
-					#print sid, socket[sid],newhigh
+					#print(sid, socket[sid],newhigh)
 					fitsocket[sid] = newhigh[7]+1
 					tmpid = info.index(eachhigh[1][0:5])
 					possible.append([newhigh[7],newhigh[2],tmpid])
@@ -694,9 +697,9 @@ def cluster_partition(info, prognum, corenum, option):
 					outinfo.append(newhigh)
 					corestr[eachhigh[1][6]].remove(eachhigh[1])
 					corestr[newhigh[6]].append(newhigh)
-				#print highinfo
-				#print outinfo
-				#print corestr
+				#print(highinfo)
+				#print(outinfo)
+				#print(corestr)
 		else: 
 			fitsocket = 2
 
@@ -715,16 +718,16 @@ def cluster_partition(info, prognum, corenum, option):
 		lowcore.append(i)
 	#for 36#
 	if fitsocket != 0 and fitsocket != 1 and fitsocket != 2:
-		#print "=========",fitsocket,"========="
-		#print possible
-		#print posscore
-		#print highid
+		#print("=========",fitsocket,"=========")
+		#print(possible)
+		#print(posscore)
+		#print(highid)
 		lowcore = []
 		for j in range(0, 3):
 			for i in range(fitsocket[j], (j+1)*12):
 				lowcore.append(i)
-		#print "lowcore",lowcore
-	#print "lowcore",lowcore
+		#print("lowcore",lowcore)
+	#print("lowcore",lowcore)
 
 	if option == 0 or option == 5:
 		sched = original(lowcore, lowinfo, posscore, highid, corestat, corestr, outinfo, threshold)
@@ -733,24 +736,24 @@ def cluster_partition(info, prognum, corenum, option):
 	#for 36#
 	elif option == 2 or option == 3 or option == 4 or option == 6:
 		sched = original(lowcore, lowinfo, posscore, highid, corestat, corestr, outinfo, threshold)
-		#print corestat
+		#print(corestat)
 		if sched == 0:
 			info.sort(key=sortid)
 			change = loadbalance(lowcore, info, posscore, highid, corestat, corestr, outinfo)
-		#print corestat
+		#print(corestat)
 			#if change == 10:
-				#print '!',
+				#print('!',)
 			#	return -1, corestr, outinfo
 		#if sched != 2:
 		#	for core in corestat:
 		#		if core[1] > 0.9:
 		#			return -1, corestr, outinfo
 
-	#print "\t",outinfo
+	#print("\t",outinfo)
 	if sched == 2:
 		return sched, [], []
-	#print sched, corestat
-	#print outinfo
+	#print(sched, corestat)
+	#print(outinfo)
 	#for 36#
 	#for analysis#
 	#if fitsocket != 0 and fitsocket != 1:
@@ -781,7 +784,7 @@ def cluster_assign_core(allsub, prognum, corenum, option):
 
 	#sort according to name
 	allsub.sort(key=sortname)
-	#print '\t', allsub
+	#print('\t', allsub)
 
 	name = ''
 	period = allsub[0][1]
@@ -808,7 +811,7 @@ def cluster_assign_core(allsub, prognum, corenum, option):
 		span += ei
 	util = 1.0*worstcase/period
 	info.append([name, period, util, worstcase, span])
-	#print info
+	#print(info)
 
 	#do partition
 	if option != 5:
@@ -818,12 +821,12 @@ def cluster_assign_core(allsub, prognum, corenum, option):
 		info2 = copy.deepcopy(info)
 		(sched, corestr, outinfo) = cluster_partition(info, prognum, corenum, 3)
 		if sched != 0:
-			#print info
-			#print outinfo
+			#print(info)
+			#print(outinfo)
 			(sched1, corestr1, outinfo1) = cluster_partition(info1, prognum, corenum, 4)
 			if sched1 == 0 or (sched == 2 and sched1 == 1):
 			#if sched1 == 0 or (sched2 == 2 and sched1 < 2):
-				#print 'sched1'
+				#print('sched1')
 				if sched == 2:
 					sched = 1
 				corestr = corestr1
@@ -831,7 +834,7 @@ def cluster_assign_core(allsub, prognum, corenum, option):
 			elif sched1 == 2:
 				(sched2, corestr2, outinfo2) = cluster_partition(info2, prognum, corenum, 2)
 				if sched2 == 0 or (sched == 2 and sched2 == 1):
-					#print 'sched2'
+					#print('sched2')
 					if sched == 2:
 						sched = 1
 					corestr = corestr2
@@ -857,9 +860,9 @@ def single_simu(alljobs, hyper):
 		if i < len(alljobs):
 			nextreltm = alljobs[i][8]
 		wait.sort(key=sortpriority)
-	#	print 'wait', wait
+	#	print('wait', wait)
 		#execute high priority
-	#	print 'time', time, 'nextreltm', nextreltm
+	#	print('time', time, 'nextreltm', nextreltm)
 		exetime = nextreltm - time
 		for job in wait:
 			work = job[3]
@@ -880,21 +883,21 @@ def single_simu(alljobs, hyper):
 				job[3]-=exetime
 				time += exetime
 				break
-	#	print 'finish', finish
+	#	print('finish', finish)
 		for job in finish:
 			if job[9] < job[10]:
-				#print 'alljobs',alljobs
-				#print job
+				#print('alljobs',alljobs)
+				#print(job)
 				return 1
 			wait.remove(job[0:10])
 		finish = []
 		time = nextreltm
 		nextreltm = hyper
 	if len(wait) != 0:
-		#print 'alljobs',alljobs
-		#print 'wait', wait
+		#print('alljobs',alljobs)
+		#print('wait', wait)
 		return 1
-	#print 'success'
+	#print('success')
 	return 0
 
 #simulate the scheduling to check if it can really be scheduled
@@ -907,7 +910,7 @@ def cluster_simulation(corestr, allsub):
 
 	#if cannot partition
 	if len(corestr) == 0:
-		#print 'len corestr == 0'
+		#print('len corestr == 0')
 		return 1
 	for core in corestr:
 		if len(core) == 0:
@@ -928,7 +931,7 @@ def cluster_simulation(corestr, allsub):
 				if sub[0] == core[0][0]:
 					high.append(sub)
 			high.sort(key=sortname)
-			#print high
+			#print(high)
 			numcore = core[0][7] - core[0][6]+1
 		#	numcore = 12
 			#calculate execution time
@@ -936,8 +939,8 @@ def cluster_simulation(corestr, allsub):
 			for sub in high:
 				segtime = int(math.ceil(1.0*sub[3]/numcore))
 				exetime += segtime*sub[4]
-				#print '   ',segtime
-			#print core[0][0], exetime, core[0][1]
+				#print('   ',segtime)
+			#print(core[0][0], exetime, core[0][1])
 			if exetime > core[0][1]:
 				tmp = 1.0*(core[0][3]-core[0][4])/(core[0][1]-core[0][4])
 				if math.ceil(tmp) <= numcore:
@@ -947,14 +950,14 @@ def cluster_simulation(corestr, allsub):
 				else:
 					print('f')
 				return 1
-			#print '\t',exetime, core[0][1]
+			#print('\t',exetime, core[0][1])
 		else:
 			#get the hyperperiod
 			hyper = 0
 			for prog in core:
 				if prog != [] and prog[1] > hyper:
 					hyper = prog[1]
-			#print 'hyper', hyper
+			#print('hyper', hyper)
 			#generate all the jobs
 			alljobs = []
 			for prog in core:
@@ -966,7 +969,7 @@ def cluster_simulation(corestr, allsub):
 					job = prog[:]+[i*period, (i+1)*period]
 					alljobs.append(job)
 			alljobs.sort(key=sortrelease)
-			#print alljobs
+			#print(alljobs)
 			#simulate the execution
 			if single_simu(alljobs, hyper) == 1:
 				return 1

@@ -31,7 +31,7 @@ def readinput(inputname):
 	p1 = open(inputname+'.rtpt', 'r');
 	infile = p1.readlines()
 	p1.close()
-	#print infile
+	#print(infile)
 
 	#first core, last core, num core
 	cores = re.match(r'^\s*(?P<firstc>\d+)\s*(?P<lastc>\d+)\s*', infile[0])
@@ -40,7 +40,7 @@ def readinput(inputname):
 		lastc = int(cores.group('lastc'))
 		corenum = lastc - firstc + 1
 		#corenum = lastc - firstc
-		#print corenum
+		#print(corenum)
 		if corenum < 1:
 			print('First line should be: first_core last_core')
 			error = 1
@@ -62,7 +62,7 @@ def readinput(inputname):
 			#get program name
 			line[0] += '_'+str(numtask)
 			name = line[0]
-			#print name
+			#print(name)
 			rawinfo[0].append(line)
 		#line C
 		elif line and count == 1:
@@ -81,7 +81,7 @@ def readinput(inputname):
 				print('period not equal deadline:', infile[i])
 				error = 1
 			util = 1.0*work/period
-			#print util
+			#print(util)
 			if util >= 1.0 and 2*span > period:
 				print('critical path length too long:', span, period)
 				error = 1
@@ -91,9 +91,9 @@ def readinput(inputname):
 			numtask += 1
 		#empty line
 		#else:
-			#print 'end', infile[i]
+			#print('end', infile[i])
 		i += 1
-	#print info#,rawinfo
+	#print(info#,rawinfo)
 	#no parameters for the last program
 	if count == 1:
 		print('no parameters for the last program')
@@ -102,8 +102,8 @@ def readinput(inputname):
 		return [], 0, infile
 	else:
 		info.sort(key=sortutil)
-		#print info
-		#print rawinfo
+		#print(info)
+		#print(rawinfo)
 		return info, corenum, rawinfo
 
 #partition the task set
@@ -130,7 +130,7 @@ def partition(inputname, rawinfo, info, corenum, balance):
 			(sched1, corestr1, outinfo1) = cluster_partition(info1, prognum, corenum, 4)
 			if sched1 == 0 or (sched == 2 and sched1 == 1):
 			#if sched1 == 0 or (sched2 == 2 and sched1 < 2):
-				#print "!", sched1
+				#print("!", sched1)
 				if sched == 2:
 					sched = 1
 				corestr = corestr1
@@ -138,15 +138,15 @@ def partition(inputname, rawinfo, info, corenum, balance):
 			elif sched1 == 2:
 				(sched2, corestr2, outinfo2) = cluster_partition(info2, prognum, corenum, 2)
 				if sched2 == 0 or (sched == 2 and sched2 == 1):
-					#print "!!", sched2
+					#print("!!", sched2)
 					if sched == 2:
 						sched = 1
 					corestr = corestr2
 					outinfo = outinfo2
-					#print sched, sched1, sched2
+					#print(sched, sched1, sched2)
 
 
-	#print sched, outinfo
+	#print(sched, outinfo)
 
 	#first line options:
 	#0: Guaranteed schedulable.
@@ -169,14 +169,14 @@ def partition(inputname, rawinfo, info, corenum, balance):
 	p2.write(str(rawinfo[2][0])+' '+str(rawinfo[2][1])+'\n')
 	#if partition available, more lines follow
 	#if cannot partition, no more lines
-	#print outinfo
+	#print(outinfo)
 	if outinfo != []:
 		firstc = rawinfo[2][0]
 		rawinfo[0].sort(key=sortname)
 		rawinfo[1].sort(key=sortname)
 		outinfo.sort(key=sortname)
-		#print rawinfo
-		#print outinfo
+		#print(rawinfo)
+		#print(outinfo)
 		for i in range(0, len(outinfo)):
 			if rawinfo[0][i][0] != outinfo[i][0]:
 				print('Weird, names not match', info[i][0], outinfo[i][0])
@@ -184,7 +184,7 @@ def partition(inputname, rawinfo, info, corenum, balance):
 				line = ''
 				fakename = rawinfo[0][i][0]
 				name = re.match(r'^(?P<name>.+)_(\d+)$', fakename)
-				#print name.group('name')
+				#print(name.group('name'))
 				if name:
 					line = line + name.group('name') + ' '
 				else:
@@ -196,7 +196,7 @@ def partition(inputname, rawinfo, info, corenum, balance):
 					line = line + each + ' '
 				line = line.strip(' ')+'\n'
 				line = line+str(firstc+outinfo[i][6])+' '+str(firstc+outinfo[i][7])+' '+str(outinfo[i][5])+'\n'
-				#print line
+				#print(line)
 				#break
 				p2.write(line)
 	p2.close()
@@ -241,7 +241,7 @@ run_cluster()
 
 #taskset = [[1, 8003584, 1, 1, 181722, 0, 0],[1, 8003584, 2, 2, 492408, 0, 0],[1, 8003584, 3, 25, 319479, 0, 0],[2, 16007168, 1, 16, 987747, 0, 0],[2, 16007168, 2, 1, 383961, 0, 0],[3, 2000896, 1, 15, 199308, 0, 0],[4, 4001792, 1, 9, 466029, 0, 0],[5, 2000896, 1, 8, 354651, 0, 0],[6, 16007168, 1, 8, 226664, 0, 0],[6, 16007168, 2, 2, 214940, 0, 0],[6, 16007168, 3, 1, 394708, 0, 0],[6, 16007168, 4, 2, 406432, 0, 0],[6, 16007168, 5, 5, 290169, 0, 0],[6, 16007168, 6, 2, 426949, 0, 0],[6, 16007168, 7, 5, 254997, 0, 0],[6, 16007168, 8, 12, 799186, 0, 0]]
 #(sched, corestr, outinfo) = cluster_assign_core(taskset, 6, 12, 0)
-#print outinfo
+#print(outinfo)
 #simu5 = cluster_simulation(corestr, taskset)
 
 
