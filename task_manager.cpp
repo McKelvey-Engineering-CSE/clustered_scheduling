@@ -145,6 +145,7 @@ int main(int argc, char *argv[])
 	get_time(&correct_period_start);
 	correct_period_start = correct_period_start + relative_release;
 	timespec max_period_runtime = { 0, 0 };
+	timespec period_runtimes[num_iters];
 	
 	for (unsigned i = 0; i < num_iters; ++i)
 	{
@@ -165,6 +166,7 @@ int main(int argc, char *argv[])
 		ts_diff(actual_period_start, period_finish, period_runtime);
 		if (period_runtime > deadline) deadlines_missed += 1;
 		if (period_runtime > max_period_runtime) max_period_runtime = period_runtime;
+		period_runtimes[i] = period_runtime;
 		
 		// Update the period_start time
 		correct_period_start = correct_period_start + period;
@@ -182,6 +184,12 @@ int main(int argc, char *argv[])
 	
 	std::cerr << "Deadlines missed for task " << task_name << ": " << deadlines_missed << " / " << num_iters << std::endl;
 	std::cerr << "Max running time for task " << task_name << ": " << max_period_runtime << " secs" << std::endl;
+	std::cerr << "Printing individual running times" << std::endl;
+	
+	for (unsigned i = 0; i < num_iters; ++i)
+	{
+		std::cerr << period_runtimes[i] << std::endl;
+	}
 	
 	return 0;
 }
