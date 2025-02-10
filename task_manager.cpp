@@ -11,7 +11,8 @@
 #include <iostream>
 #include "task.h"
 #include "single_use_barrier.h"
-#include "timespec_functions.h"
+// #include "timespec_functions.h"
+#include "time_functions.h"
 
 enum rt_gomp_task_manager_error_codes
 { 
@@ -25,6 +26,12 @@ enum rt_gomp_task_manager_error_codes
 	RT_GOMP_TASK_MANAGER_ARG_PARSE_ERROR,
 	RT_GOMP_TASK_MANAGER_ARG_COUNT_ERROR
 };
+
+// using TimePoint = timespec;
+// using Duration = timespec;
+using Clock = std::chrono::high_resolution_clock;
+using TimePoint = Clock::time_point;
+using Duration = Clock::duration;
 
 int main(int argc, char *argv[])
 {
@@ -64,9 +71,14 @@ int main(int argc, char *argv[])
 	int task_argc = argc - (num_req_args-1);
 	char **task_argv = &argv[num_req_args-1];
 	
-	timespec period = { period_sec, period_ns };
-	timespec deadline = { deadline_sec, deadline_ns };
-	timespec relative_release = { relative_release_sec, relative_release_ns };
+	// timespec period = { period_sec, period_ns };
+	// timespec deadline = { deadline_sec, deadline_ns };
+	// timespec relative_release = { relative_release_sec, relative_release_ns };
+
+	auto period = TimeTraits<Duration>::create_duration(period_sec, period_ns);
+	auto deadline = TimeTraits<Duration>::create_duration(deadline_sec, deadline_ns);
+	auto relative_release = TimeTraits<Duration>::create_duration(relative_release_sec, relative_release_ns);
+	
 	
 	// Check if the task has a run function
 	if (task.run == NULL)
@@ -141,20 +153,29 @@ int main(int argc, char *argv[])
 	
 	// Initialize timing controls
 	unsigned deadlines_missed = 0;
-	timespec correct_period_start, actual_period_start, period_finish, period_runtime;
-	get_time(&correct_period_start);
+	// timespec correct_period_start, actual_period_start, period_finish, period_runtime;
+	// get_time(&correct_period_start);
+	// correct_period_start = correct_period_start + relative_release;
+	// timespec max_period_runtime = { 0, 0 };
+
+	TimePoint correct_period_start, actual_period_start, period_finish;
+	Duration period_runtime;
+	TimeTraits<TimePoint>::get_time(&correct_period_start);
 	correct_period_start = correct_period_start + relative_release;
-	timespec max_period_runtime = { 0, 0 };
+	auto max_period_runtime = TimeTraits<Duration>::create_duration(0, 0);
 	
 	for (unsigned i = 0; i < num_iters; ++i)
 	{
 		// Sleep until the start of the period
+
 		sleep_until_ts(correct_period_start);
-		get_time(&actual_period_start);
+		// get_time(&actual_period_start);
+		TimeTraits<TimePoint>::get_time(&actual_period_start);
 	
 		// Run the task
 		ret_val = task.run(task_argc, task_argv);
-		get_time(&period_finish);
+		// get_time(&period_finish);
+		TimeTraits<TimePoint>::get_time(&period_finish);
 		if (ret_val != 0)
 		{
 			fprintf(stderr, "ERROR: Task run failed for task %s", task_name);
@@ -162,14 +183,15 @@ int main(int argc, char *argv[])
 		}
 		
 		// Check if the task finished before its deadline and record the maximum running time
-		ts_diff(actual_period_start, period_finish, period_runtime);
+		// ts_diff(actual_period_start, period_finish, period_runtime);
+		period_runtime = TimeTraits<TimePoint>::diff(actual_period_start, period_finish);
 		if (period_runtime > deadline) deadlines_missed += 1;
 		if (period_runtime > max_period_runtime) max_period_runtime = period_runtime;
 		
 		// Update the period_start time
 		correct_period_start = correct_period_start + period;
 	}
-	
+
 	// Finalize the task
 	if (task.finalize != NULL) 
 	{
