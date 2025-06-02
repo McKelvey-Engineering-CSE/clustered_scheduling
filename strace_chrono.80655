@@ -1,0 +1,160 @@
+set_robust_list(0x7f79fd22e460, 24)     = 0
+execve("simple_task", ["simple_task", "1", "1", "97", "0", "400000000", "0", "400000000", "2", "0", "20", "RT_GOMP_CLUSTERING_BARRIER", "simple_task", "1000", "1000"], 0x7ffe7786c120 /* 16 vars */) = 0
+brk(NULL)                               = 0x1951000
+arch_prctl(0x3001 /* ARCH_??? */, 0x7fffe7138f50) = -1 EINVAL (Invalid argument)
+access("/etc/ld.so.preload", R_OK)      = -1 ENOENT (No such file or directory)
+openat(AT_FDCWD, "/etc/ld.so.cache", O_RDONLY|O_CLOEXEC) = 4
+fstat(4, {st_mode=S_IFREG|0644, st_size=61243, ...}) = 0
+mmap(NULL, 61243, PROT_READ, MAP_PRIVATE, 4, 0) = 0x7fb6f9a5f000
+close(4)                                = 0
+openat(AT_FDCWD, "/lib64/libstdc++.so.6", O_RDONLY|O_CLOEXEC) = 4
+read(4, "\177ELF\2\1\1\3\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0\320\23\n\0\0\0\0\0"..., 832) = 832
+fstat(4, {st_mode=S_IFREG|0755, st_size=2314632, ...}) = 0
+mmap(NULL, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fb6f9a5d000
+mmap(NULL, 2263040, PROT_READ, MAP_PRIVATE|MAP_DENYWRITE, 4, 0) = 0x7fb6f9800000
+mmap(0x7fb6f9899000, 1097728, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 4, 0x99000) = 0x7fb6f9899000
+mmap(0x7fb6f99a5000, 471040, PROT_READ, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 4, 0x1a5000) = 0x7fb6f99a5000
+mmap(0x7fb6f9a18000, 57344, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 4, 0x217000) = 0x7fb6f9a18000
+mmap(0x7fb6f9a26000, 10240, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0x7fb6f9a26000
+close(4)                                = 0
+openat(AT_FDCWD, "/lib64/libm.so.6", O_RDONLY|O_CLOEXEC) = 4
+read(4, "\177ELF\2\1\1\3\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0\220\323\0\0\0\0\0\0"..., 832) = 832
+fstat(4, {st_mode=S_IFREG|0755, st_size=912440, ...}) = 0
+mmap(NULL, 893184, PROT_READ, MAP_PRIVATE|MAP_DENYWRITE, 4, 0) = 0x7fb6f9725000
+mmap(0x7fb6f9732000, 458752, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 4, 0xd000) = 0x7fb6f9732000
+mmap(0x7fb6f97a2000, 376832, PROT_READ, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 4, 0x7d000) = 0x7fb6f97a2000
+mmap(0x7fb6f97fe000, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 4, 0xd8000) = 0x7fb6f97fe000
+close(4)                                = 0
+openat(AT_FDCWD, "/lib64/libgomp.so.1", O_RDONLY|O_CLOEXEC) = 4
+read(4, "\177ELF\2\1\1\0\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0000\256\0\0\0\0\0\0"..., 832) = 832
+fstat(4, {st_mode=S_IFREG|0755, st_size=294392, ...}) = 0
+mmap(NULL, 288176, PROT_READ, MAP_PRIVATE|MAP_DENYWRITE, 4, 0) = 0x7fb6f96de000
+mprotect(0x7fb6f96e8000, 241664, PROT_NONE) = 0
+mmap(0x7fb6f96e8000, 188416, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 4, 0xa000) = 0x7fb6f96e8000
+mmap(0x7fb6f9716000, 49152, PROT_READ, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 4, 0x38000) = 0x7fb6f9716000
+mmap(0x7fb6f9723000, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 4, 0x44000) = 0x7fb6f9723000
+close(4)                                = 0
+openat(AT_FDCWD, "/lib64/libgcc_s.so.1", O_RDONLY|O_CLOEXEC) = 4
+read(4, "\177ELF\2\1\1\0\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0\3605\0\0\0\0\0\0"..., 832) = 832
+fstat(4, {st_mode=S_IFREG|0755, st_size=108136, ...}) = 0
+mmap(NULL, 107208, PROT_READ, MAP_PRIVATE|MAP_DENYWRITE, 4, 0) = 0x7fb6f9a42000
+mprotect(0x7fb6f9a45000, 90112, PROT_NONE) = 0
+mmap(0x7fb6f9a45000, 73728, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 4, 0x3000) = 0x7fb6f9a45000
+mmap(0x7fb6f9a57000, 12288, PROT_READ, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 4, 0x15000) = 0x7fb6f9a57000
+mmap(0x7fb6f9a5b000, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 4, 0x18000) = 0x7fb6f9a5b000
+close(4)                                = 0
+openat(AT_FDCWD, "/lib64/libc.so.6", O_RDONLY|O_CLOEXEC) = 4
+read(4, "\177ELF\2\1\1\3\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0\220\227\2\0\0\0\0\0"..., 832) = 832
+pread64(4, "\6\0\0\0\4\0\0\0@\0\0\0\0\0\0\0@\0\0\0\0\0\0\0@\0\0\0\0\0\0\0"..., 784, 64) = 784
+pread64(4, "\4\0\0\0 \0\0\0\5\0\0\0GNU\0\2\0\0\300\4\0\0\0\3\0\0\0\0\0\0\0"..., 48, 848) = 48
+pread64(4, "\4\0\0\0\24\0\0\0\3\0\0\0GNU\0\327\212D\256\224\361\323 4.\17\366\3021[+"..., 68, 896) = 68
+fstat(4, {st_mode=S_IFREG|0755, st_size=2543976, ...}) = 0
+pread64(4, "\6\0\0\0\4\0\0\0@\0\0\0\0\0\0\0@\0\0\0\0\0\0\0@\0\0\0\0\0\0\0"..., 784, 64) = 784
+mmap(NULL, 2129840, PROT_READ, MAP_PRIVATE|MAP_DENYWRITE, 4, 0) = 0x7fb6f9400000
+mmap(0x7fb6f9428000, 1527808, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 4, 0x28000) = 0x7fb6f9428000
+mmap(0x7fb6f959d000, 360448, PROT_READ, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 4, 0x19d000) = 0x7fb6f959d000
+mmap(0x7fb6f95f5000, 24576, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 4, 0x1f5000) = 0x7fb6f95f5000
+mmap(0x7fb6f95fb000, 53168, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0x7fb6f95fb000
+close(4)                                = 0
+mmap(NULL, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fb6f9a40000
+mmap(NULL, 12288, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fb6f9a3d000
+arch_prctl(ARCH_SET_FS, 0x7fb6f9a3d7c0) = 0
+set_tid_address(0x7fb6f9a3da90)         = 80655
+set_robust_list(0x7fb6f9a3daa0, 24)     = 0
+rseq(0x7fb6f9a3e160, 0x20, 0, 0x53053053) = 0
+mprotect(0x7fb6f95f5000, 16384, PROT_READ) = 0
+mprotect(0x7fb6f9a5b000, 4096, PROT_READ) = 0
+mprotect(0x7fb6f9723000, 4096, PROT_READ) = 0
+mprotect(0x7fb6f97fe000, 4096, PROT_READ) = 0
+mprotect(0x7fb6f9a18000, 53248, PROT_READ) = 0
+mprotect(0x408000, 4096, PROT_READ)     = 0
+mprotect(0x7fb6f9aa2000, 8192, PROT_READ) = 0
+prlimit64(0, RLIMIT_STACK, NULL, {rlim_cur=8192*1024, rlim_max=RLIM64_INFINITY}) = 0
+munmap(0x7fb6f9a5f000, 61243)           = 0
+openat(AT_FDCWD, "/sys/devices/system/cpu", O_RDONLY|O_NONBLOCK|O_CLOEXEC|O_DIRECTORY) = 4
+fstat(4, {st_mode=S_IFDIR|0755, st_size=0, ...}) = 0
+getrandom("\x6b\x8b\xe5\x00\x15\xa6\x61\x8a", 8, GRND_NONBLOCK) = 8
+brk(NULL)                               = 0x1951000
+brk(0x1972000)                          = 0x1972000
+getdents64(4, 0x19512d0 /* 146 entries */, 32768) = 4576
+getdents64(4, 0x19512d0 /* 0 entries */, 32768) = 0
+close(4)                                = 0
+sched_getaffinity(80655, 16, [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 123, 124, 125, 126, 127]) = 16
+futex(0x7fb6f9a266bc, FUTEX_WAKE_PRIVATE, 2147483647) = 0
+futex(0x7fb6f9a266c8, FUTEX_WAKE_PRIVATE, 2147483647) = 0
+getpid()                                = 80655
+sched_setaffinity(80655, 128, [1])      = 0
+getpid()                                = 80655
+sched_setscheduler(80655, SCHED_FIFO, [97]) = 0
+sched_getaffinity(80655, 16, [1])       = 16
+write(2, "OMP sched: 2 1\n", 15)        = 15
+write(2, "Initializing task simple_task\n", 30) = 30
+mmap(NULL, 8003584, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fb6f8c5e000
+write(2, "Task simple_task reached barrier"..., 33) = 33
+openat(AT_FDCWD, "/dev/shm/RT_GOMP_CLUSTERING_BARRIER", O_RDWR|O_CREAT|O_NOFOLLOW|O_CLOEXEC, 0600) = 4
+ftruncate(4, 4)                         = 0
+mmap(NULL, 4, PROT_READ|PROT_WRITE, MAP_SHARED, 4, 0) = 0x7fb6f9a6d000
+close(4)                                = 0
+clock_nanosleep(CLOCK_REALTIME, 0, {tv_sec=0, tv_nsec=500000}, NULL) = 0
+munmap(0x7fb6f9a6d000, 4)               = 0
+unlink("/dev/shm/RT_GOMP_CLUSTERING_BARRIER") = -1 ENOENT (No such file or directory)
+clock_nanosleep(CLOCK_REALTIME, 0, {tv_sec=1, tv_nsec=999999550}, 0x7fffe7137bd0) = 0
+futex(0x1966fa4, FUTEX_WAKE_PRIVATE, 2147483647) = 0
+clock_nanosleep(CLOCK_REALTIME, 0, {tv_sec=0, tv_nsec=393217563}, 0x7fffe7137bd0) = 0
+futex(0x1966fa4, FUTEX_WAKE_PRIVATE, 2147483647) = 0
+clock_nanosleep(CLOCK_REALTIME, 0, {tv_sec=0, tv_nsec=393449794}, 0x7fffe7137bd0) = 0
+futex(0x1966fa4, FUTEX_WAKE_PRIVATE, 2147483647) = 0
+clock_nanosleep(CLOCK_REALTIME, 0, {tv_sec=0, tv_nsec=393414865}, 0x7fffe7137bd0) = 0
+futex(0x1966fa4, FUTEX_WAKE_PRIVATE, 2147483647) = 0
+clock_nanosleep(CLOCK_REALTIME, 0, {tv_sec=0, tv_nsec=395637855}, 0x7fffe7137bd0) = 0
+futex(0x1966fa4, FUTEX_WAKE_PRIVATE, 2147483647) = 0
+clock_nanosleep(CLOCK_REALTIME, 0, {tv_sec=0, tv_nsec=396027297}, 0x7fffe7137bd0) = 0
+futex(0x1966fa4, FUTEX_WAKE_PRIVATE, 2147483647) = 0
+clock_nanosleep(CLOCK_REALTIME, 0, {tv_sec=0, tv_nsec=393106129}, 0x7fffe7137bd0) = 0
+futex(0x1966fa4, FUTEX_WAKE_PRIVATE, 2147483647) = 0
+clock_nanosleep(CLOCK_REALTIME, 0, {tv_sec=0, tv_nsec=393201779}, 0x7fffe7137bd0) = 0
+futex(0x1966fa4, FUTEX_WAKE_PRIVATE, 2147483647) = 0
+clock_nanosleep(CLOCK_REALTIME, 0, {tv_sec=0, tv_nsec=395971310}, 0x7fffe7137bd0) = 0
+futex(0x1966fa4, FUTEX_WAKE_PRIVATE, 2147483647) = 0
+clock_nanosleep(CLOCK_REALTIME, 0, {tv_sec=0, tv_nsec=393180029}, 0x7fffe7137bd0) = 0
+futex(0x1966fa4, FUTEX_WAKE_PRIVATE, 2147483647) = 0
+clock_nanosleep(CLOCK_REALTIME, 0, {tv_sec=0, tv_nsec=393182790}, 0x7fffe7137bd0) = 0
+futex(0x1966fa4, FUTEX_WAKE_PRIVATE, 2147483647) = 0
+clock_nanosleep(CLOCK_REALTIME, 0, {tv_sec=0, tv_nsec=393088051}, 0x7fffe7137bd0) = 0
+futex(0x1966fa4, FUTEX_WAKE_PRIVATE, 2147483647) = 0
+clock_nanosleep(CLOCK_REALTIME, 0, {tv_sec=0, tv_nsec=393196032}, 0x7fffe7137bd0) = 0
+futex(0x1966fa4, FUTEX_WAKE_PRIVATE, 2147483647) = 0
+clock_nanosleep(CLOCK_REALTIME, 0, {tv_sec=0, tv_nsec=393203273}, 0x7fffe7137bd0) = 0
+futex(0x1966fa4, FUTEX_WAKE_PRIVATE, 2147483647) = 0
+clock_nanosleep(CLOCK_REALTIME, 0, {tv_sec=0, tv_nsec=394381884}, 0x7fffe7137bd0) = 0
+futex(0x1966fa4, FUTEX_WAKE_PRIVATE, 2147483647) = 0
+clock_nanosleep(CLOCK_REALTIME, 0, {tv_sec=0, tv_nsec=393234204}, 0x7fffe7137bd0) = 0
+futex(0x1966fa4, FUTEX_WAKE_PRIVATE, 2147483647) = 0
+clock_nanosleep(CLOCK_REALTIME, 0, {tv_sec=0, tv_nsec=392976965}, 0x7fffe7137bd0) = 0
+futex(0x1966fa4, FUTEX_WAKE_PRIVATE, 2147483647) = 0
+clock_nanosleep(CLOCK_REALTIME, 0, {tv_sec=0, tv_nsec=392977156}, 0x7fffe7137bd0) = 0
+futex(0x1966fa4, FUTEX_WAKE_PRIVATE, 2147483647) = 0
+clock_nanosleep(CLOCK_REALTIME, 0, {tv_sec=0, tv_nsec=395811477}, 0x7fffe7137bd0) = 0
+futex(0x1966fa4, FUTEX_WAKE_PRIVATE, 2147483647) = 0
+clock_nanosleep(CLOCK_REALTIME, 0, {tv_sec=0, tv_nsec=392961347}, 0x7fffe7137bd0) = 0
+futex(0x1966fa4, FUTEX_WAKE_PRIVATE, 2147483647) = 0
+munmap(0x7fb6f8c5e000, 8003584)         = 0
+write(2, "Deadlines missed for task ", 26) = 26
+write(2, "simple_task", 11)             = 11
+write(2, ": ", 2)                       = 2
+write(2, "0", 1)                        = 1
+write(2, " / ", 3)                      = 3
+write(2, "20", 2)                       = 2
+write(2, "\n", 1)                       = 1
+write(2, "Max running time for task ", 26) = 26
+write(2, "simple_task", 11)             = 11
+write(2, ": ", 2)                       = 2
+write(2, "0", 1)                        = 1
+write(2, ".", 1)                        = 1
+write(2, "0", 1)                        = 1
+write(2, "0", 1)                        = 1
+write(2, "6842780", 7)                  = 7
+write(2, " secs", 5)                    = 5
+write(2, "\n", 1)                       = 1
+exit_group(0)                           = ?
++++ exited with 0 +++

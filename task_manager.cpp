@@ -29,7 +29,7 @@ enum rt_gomp_task_manager_error_codes
 
 // using TimePoint = timespec;
 // using Duration = timespec;
-using Clock = std::chrono::high_resolution_clock;
+using Clock = std::chrono::steady_clock;
 using TimePoint = Clock::time_point;
 using Duration = Clock::duration;
 
