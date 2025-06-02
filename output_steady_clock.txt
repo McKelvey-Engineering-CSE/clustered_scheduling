@@ -1,0 +1,221 @@
+Scheduling taskset simple_taskset ...
+[pid 88564] --- Called exec() ---
+[pid 88564] libpython3.9.so.1.0->clock_gettime(0, 0x7ffd131b7100, 1, 0x7fc19cc82334) = 0
+[pid 88564] libpython3.9.so.1.0->clock_gettime(1, 0x7ffd131b7100, 1, 0x28d923857) = 0
+[pid 88564] libpython3.9.so.1.0->clock_gettime(1, 0x7ffd131b7100, 1, 0x225e50562) = 0
+simple_taskset
+
+
+
+Guaranteed schedulable.
+[pid 88564] +++ exited (status 0) +++
+[pid 88563] --- SIGCHLD (Child exited) ---
+Taskset is schedulable: simple_taskset
+Forking and execv-ing task simple_task
+Forking and execv-ing task simple_task
+All tasks started
+[pid 88565] --- Called exec() ---
+[pid 88566] --- Called exec() ---
+OMP sched: 2 1
+Initializing task simple_task
+Task simple_task reached barrier
+OMP sched: 2 1
+Initializing task simple_task
+Task simple_task reached barrier
+[pid 88565] libstdc++.so.6->clock_gettime(1, 0x7ffe016ed1c0, 0, 0x7f9276aff37b) = 0
+[pid 88565] libstdc++.so.6->clock_gettime(1, 0x7ffe016ed190, 0, 24 <unfinished ...>
+[pid 88566] libstdc++.so.6->clock_gettime(1, 0x7ffeee24c6d0, 0, -280 <unfinished ...>
+[pid 88565] <... clock_gettime resumed> )        = 0
+[pid 88565] libstdc++.so.6->clock_gettime(1, 0x7ffe016ed1c0, 0x7ffe016ed180, 24 <unfinished ...>
+[pid 88566] <... clock_gettime resumed> )        = 0
+[pid 88566] libstdc++.so.6->clock_gettime(1, 0x7ffeee24c6a0, 0, 24 <unfinished ...>
+[pid 88565] <... clock_gettime resumed> )        = 0
+[pid 88566] <... clock_gettime resumed> )        = 0
+[pid 88566] libstdc++.so.6->clock_gettime(1, 0x7ffeee24c660, 0x7ffeee24c690, 24 <unfinished ...>
+[pid 88565] libstdc++.so.6->clock_gettime(1, 0x7ffe016ed1c0, 0x97f0, 97 <unfinished ...>
+[pid 88566] <... clock_gettime resumed> )        = 0
+[pid 88565] <... clock_gettime resumed> )        = 0
+[pid 88565] libstdc++.so.6->clock_gettime(1, 0x7ffe016ed190, 0x845ea02626cc0, 24) = 0
+[pid 88565] libstdc++.so.6->clock_gettime(1, 0x7ffe016ed150, 0x7ffe016ed180, 24) = 0
+[pid 88565] libstdc++.so.6->clock_gettime(1, 0x7ffe016ed1c0, 0x7ffe016ed140, 0x7f9276ad413a) = 0
+[pid 88565] libstdc++.so.6->clock_gettime(1, 0x7ffe016ed1c0, 0x97f0, 97) = 0
+[pid 88565] libstdc++.so.6->clock_gettime(1, 0x7ffe016ed190, 0x845ea1a39f0c0, 24) = 0
+[pid 88565] libstdc++.so.6->clock_gettime(1, 0x7ffe016ed150, 0x7ffe016ed180, 24) = 0
+[pid 88565] libstdc++.so.6->clock_gettime(1, 0x7ffe016ed1c0, 0x7ffe016ed140, 0x7f9276ad413a) = 0
+[pid 88565] libstdc++.so.6->clock_gettime(1, 0x7ffe016ed1c0, 0x97f0, 97) = 0
+[pid 88565] libstdc++.so.6->clock_gettime(1, 0x7ffe016ed190, 0x845ea321174c0, 24) = 0
+[pid 88565] libstdc++.so.6->clock_gettime(1, 0x7ffe016ed150, 0x7ffe016ed180, 24) = 0
+[pid 88565] libstdc++.so.6->clock_gettime(1, 0x7ffe016ed1c0, 0x7ffe016ed140, 0x7f9276ad413a) = 0
+[pid 88565] libstdc++.so.6->clock_gettime(1, 0x7ffe016ed1c0, 0x97f0, 97) = 0
+[pid 88565] libstdc++.so.6->clock_gettime(1, 0x7ffe016ed190, 0x845ea49e8f8c0, 24) = 0
+[pid 88565] libstdc++.so.6->clock_gettime(1, 0x7ffe016ed150, 0x7ffe016ed180, 24) = 0
+[pid 88565] libstdc++.so.6->clock_gettime(1, 0x7ffe016ed1c0, 0x7ffe016ed140, 0x7f9276ad413a) = 0
+[pid 88565] libstdc++.so.6->clock_gettime(1, 0x7ffe016ed1c0, 0x97f0, 97) = 0
+[pid 88565] libstdc++.so.6->clock_gettime(1, 0x7ffe016ed190, 0x845ea61c07cc0, 24) = 0
+[pid 88565] libstdc++.so.6->clock_gettime(1, 0x7ffe016ed150, 0x7ffe016ed180, 24) = 0
+[pid 88565] libstdc++.so.6->clock_gettime(1, 0x7ffe016ed1c0, 0x7ffe016ed140, 0x7f9276ad413a) = 0
+[pid 88566] libstdc++.so.6->clock_gettime(1, 0x7ffeee24c6d0, 0x7ffeee24c650, 0x7f97152d413a <unfinished ...>
+[pid 88565] libstdc++.so.6->clock_gettime(1, 0x7ffe016ed1c0, 0x97f0, 97) = 0
+[pid 88566] <... clock_gettime resumed> )        = 0
+[pid 88565] libstdc++.so.6->clock_gettime(1, 0x7ffe016ed190, 0x845ea799800c0, 24) = 0
+[pid 88565] libstdc++.so.6->clock_gettime(1, 0x7ffe016ed150, 0x7ffe016ed180, 24) = 0
+[pid 88566] libstdc++.so.6->clock_gettime(1, 0x7ffeee24c6d0, 0xaac0, 97) = 0
+[pid 88566] libstdc++.so.6->clock_gettime(1, 0x7ffeee24c6a0, 0x845ea799c8bd7, 24) = 0
+[pid 88566] libstdc++.so.6->clock_gettime(1, 0x7ffeee24c660, 0x7ffeee24c690, 24) = 0
+[pid 88565] libstdc++.so.6->clock_gettime(1, 0x7ffe016ed1c0, 0x7ffe016ed140, 0x7f9276ad413a <unfinished ...>
+[pid 88566] libstdc++.so.6->clock_gettime(1, 0x7ffeee24c6d0, 0x7ffeee24c650, 0x7f97152d413a <unfinished ...>
+[pid 88565] <... clock_gettime resumed> )        = 0
+[pid 88566] <... clock_gettime resumed> )        = 0
+[pid 88565] libstdc++.so.6->clock_gettime(1, 0x7ffe016ed1c0, 0x97f0, 97) = 0
+[pid 88565] libstdc++.so.6->clock_gettime(1, 0x7ffe016ed190, 0x845ea916f84c0, 24) = 0
+[pid 88565] libstdc++.so.6->clock_gettime(1, 0x7ffe016ed150, 0x7ffe016ed180, 24) = 0
+[pid 88566] libstdc++.so.6->clock_gettime(1, 0x7ffeee24c6d0, 0xaac0, 97) = 0
+[pid 88566] libstdc++.so.6->clock_gettime(1, 0x7ffeee24c6a0, 0x845ea91740fd7, 24) = 0
+[pid 88566] libstdc++.so.6->clock_gettime(1, 0x7ffeee24c660, 0x7ffeee24c690, 24) = 0
+[pid 88565] libstdc++.so.6->clock_gettime(1, 0x7ffe016ed1c0, 0x7ffe016ed140, 0x7f9276ad413a) = 0
+[pid 88566] libstdc++.so.6->clock_gettime(1, 0x7ffeee24c6d0, 0x7ffeee24c650, 0x7f97152d413a <unfinished ...>
+[pid 88565] libstdc++.so.6->clock_gettime(1, 0x7ffe016ed1c0, 0x97f0, 97 <unfinished ...>
+[pid 88566] <... clock_gettime resumed> )        = 0
+[pid 88565] <... clock_gettime resumed> )        = 0
+[pid 88565] libstdc++.so.6->clock_gettime(1, 0x7ffe016ed190, 0x845eaa94708c0, 24) = 0
+[pid 88565] libstdc++.so.6->clock_gettime(1, 0x7ffe016ed150, 0x7ffe016ed180, 24) = 0
+[pid 88566] libstdc++.so.6->clock_gettime(1, 0x7ffeee24c6d0, 0xaac0, 97) = 0
+[pid 88566] libstdc++.so.6->clock_gettime(1, 0x7ffeee24c6a0, 0x845eaa94b93d7, 24) = 0
+[pid 88566] libstdc++.so.6->clock_gettime(1, 0x7ffeee24c660, 0x7ffeee24c690, 24) = 0
+[pid 88565] libstdc++.so.6->clock_gettime(1, 0x7ffe016ed1c0, 0x7ffe016ed140, 0x7f9276ad413a) = 0
+[pid 88566] libstdc++.so.6->clock_gettime(1, 0x7ffeee24c6d0, 0x7ffeee24c650, 0x7f97152d413a <unfinished ...>
+[pid 88565] libstdc++.so.6->clock_gettime(1, 0x7ffe016ed1c0, 0x97f0, 97 <unfinished ...>
+[pid 88566] <... clock_gettime resumed> )        = 0
+[pid 88565] <... clock_gettime resumed> )        = 0
+[pid 88565] libstdc++.so.6->clock_gettime(1, 0x7ffe016ed190, 0x845eac11e8cc0, 24) = 0
+[pid 88565] libstdc++.so.6->clock_gettime(1, 0x7ffe016ed150, 0x7ffe016ed180, 24) = 0
+[pid 88566] libstdc++.so.6->clock_gettime(1, 0x7ffeee24c6d0, 0xaac0, 97) = 0
+[pid 88566] libstdc++.so.6->clock_gettime(1, 0x7ffeee24c6a0, 0x845eac12317d7, 24) = 0
+[pid 88566] libstdc++.so.6->clock_gettime(1, 0x7ffeee24c660, 0x7ffeee24c690, 24) = 0
+[pid 88565] libstdc++.so.6->clock_gettime(1, 0x7ffe016ed1c0, 0x7ffe016ed140, 0x7f9276ad413a) = 0
+[pid 88566] libstdc++.so.6->clock_gettime(1, 0x7ffeee24c6d0, 0x7ffeee24c650, 0x7f97152d413a) = 0
+[pid 88565] libstdc++.so.6->clock_gettime(1, 0x7ffe016ed1c0, 0x97f0, 97) = 0
+[pid 88565] libstdc++.so.6->clock_gettime(1, 0x7ffe016ed190, 0x845ead8f610c0, 24) = 0
+[pid 88565] libstdc++.so.6->clock_gettime(1, 0x7ffe016ed150, 0x7ffe016ed180, 24) = 0
+[pid 88566] libstdc++.so.6->clock_gettime(1, 0x7ffeee24c6d0, 0xaac0, 97) = 0
+[pid 88566] libstdc++.so.6->clock_gettime(1, 0x7ffeee24c6a0, 0x845ead8fa9bd7, 24) = 0
+[pid 88566] libstdc++.so.6->clock_gettime(1, 0x7ffeee24c660, 0x7ffeee24c690, 24) = 0
+[pid 88565] libstdc++.so.6->clock_gettime(1, 0x7ffe016ed1c0, 0x7ffe016ed140, 0x7f9276ad413a) = 0
+[pid 88566] libstdc++.so.6->clock_gettime(1, 0x7ffeee24c6d0, 0x7ffeee24c650, 0x7f97152d413a <unfinished ...>
+[pid 88565] libstdc++.so.6->clock_gettime(1, 0x7ffe016ed1c0, 0x97f0, 97 <unfinished ...>
+[pid 88566] <... clock_gettime resumed> )        = 0
+[pid 88565] <... clock_gettime resumed> )        = 0
+[pid 88565] libstdc++.so.6->clock_gettime(1, 0x7ffe016ed190, 0x845eaf0cd94c0, 24) = 0
+[pid 88565] libstdc++.so.6->clock_gettime(1, 0x7ffe016ed150, 0x7ffe016ed180, 24) = 0
+[pid 88566] libstdc++.so.6->clock_gettime(1, 0x7ffeee24c6d0, 0xaac0, 97) = 0
+[pid 88566] libstdc++.so.6->clock_gettime(1, 0x7ffeee24c6a0, 0x845eaf0d21fd7, 24) = 0
+[pid 88566] libstdc++.so.6->clock_gettime(1, 0x7ffeee24c660, 0x7ffeee24c690, 24) = 0
+[pid 88565] libstdc++.so.6->clock_gettime(1, 0x7ffe016ed1c0, 0x7ffe016ed140, 0x7f9276ad413a) = 0
+[pid 88566] libstdc++.so.6->clock_gettime(1, 0x7ffeee24c6d0, 0x7ffeee24c650, 0x7f97152d413a <unfinished ...>
+[pid 88565] libstdc++.so.6->clock_gettime(1, 0x7ffe016ed1c0, 0x97f0, 97) = 0
+[pid 88566] <... clock_gettime resumed> )        = 0
+[pid 88565] libstdc++.so.6->clock_gettime(1, 0x7ffe016ed190, 0x845eb08a518c0, 24) = 0
+[pid 88565] libstdc++.so.6->clock_gettime(1, 0x7ffe016ed150, 0x7ffe016ed180, 24) = 0
+[pid 88566] libstdc++.so.6->clock_gettime(1, 0x7ffeee24c6d0, 0xaac0, 97) = 0
+[pid 88566] libstdc++.so.6->clock_gettime(1, 0x7ffeee24c6a0, 0x845eb08a9a3d7, 24) = 0
+[pid 88566] libstdc++.so.6->clock_gettime(1, 0x7ffeee24c660, 0x7ffeee24c690, 24) = 0
+[pid 88565] libstdc++.so.6->clock_gettime(1, 0x7ffe016ed1c0, 0x7ffe016ed140, 0x7f9276ad413a) = 0
+[pid 88566] libstdc++.so.6->clock_gettime(1, 0x7ffeee24c6d0, 0x7ffeee24c650, 0x7f97152d413a <unfinished ...>
+[pid 88565] libstdc++.so.6->clock_gettime(1, 0x7ffe016ed1c0, 0x97f0, 97 <unfinished ...>
+[pid 88566] <... clock_gettime resumed> )        = 0
+[pid 88565] <... clock_gettime resumed> )        = 0
+[pid 88565] libstdc++.so.6->clock_gettime(1, 0x7ffe016ed190, 0x845eb207c9cc0, 24) = 0
+[pid 88565] libstdc++.so.6->clock_gettime(1, 0x7ffe016ed150, 0x7ffe016ed180, 24) = 0
+[pid 88566] libstdc++.so.6->clock_gettime(1, 0x7ffeee24c6d0, 0xaac0, 97) = 0
+[pid 88566] libstdc++.so.6->clock_gettime(1, 0x7ffeee24c6a0, 0x845eb208127d7, 24) = 0
+[pid 88566] libstdc++.so.6->clock_gettime(1, 0x7ffeee24c660, 0x7ffeee24c690, 24) = 0
+[pid 88565] libstdc++.so.6->clock_gettime(1, 0x7ffe016ed1c0, 0x7ffe016ed140, 0x7f9276ad413a) = 0
+[pid 88566] libstdc++.so.6->clock_gettime(1, 0x7ffeee24c6d0, 0x7ffeee24c650, 0x7f97152d413a) = 0
+[pid 88565] libstdc++.so.6->clock_gettime(1, 0x7ffe016ed1c0, 0x97f0, 97) = 0
+[pid 88565] libstdc++.so.6->clock_gettime(1, 0x7ffe016ed190, 0x845eb385420c0, 24) = 0
+[pid 88565] libstdc++.so.6->clock_gettime(1, 0x7ffe016ed150, 0x7ffe016ed180, 24) = 0
+[pid 88566] libstdc++.so.6->clock_gettime(1, 0x7ffeee24c6d0, 0xaac0, 97) = 0
+[pid 88566] libstdc++.so.6->clock_gettime(1, 0x7ffeee24c6a0, 0x845eb3858abd7, 24) = 0
+[pid 88566] libstdc++.so.6->clock_gettime(1, 0x7ffeee24c660, 0x7ffeee24c690, 24) = 0
+[pid 88565] libstdc++.so.6->clock_gettime(1, 0x7ffe016ed1c0, 0x7ffe016ed140, 0x7f9276ad413a) = 0
+[pid 88566] libstdc++.so.6->clock_gettime(1, 0x7ffeee24c6d0, 0x7ffeee24c650, 0x7f97152d413a <unfinished ...>
+[pid 88565] libstdc++.so.6->clock_gettime(1, 0x7ffe016ed1c0, 0x97f0, 97 <unfinished ...>
+[pid 88566] <... clock_gettime resumed> )        = 0
+[pid 88565] <... clock_gettime resumed> )        = 0
+[pid 88565] libstdc++.so.6->clock_gettime(1, 0x7ffe016ed190, 0x845eb502ba4c0, 24) = 0
+[pid 88565] libstdc++.so.6->clock_gettime(1, 0x7ffe016ed150, 0x7ffe016ed180, 24) = 0
+[pid 88566] libstdc++.so.6->clock_gettime(1, 0x7ffeee24c6d0, 0xaac0, 97) = 0
+[pid 88566] libstdc++.so.6->clock_gettime(1, 0x7ffeee24c6a0, 0x845eb50302fd7, 24) = 0
+[pid 88566] libstdc++.so.6->clock_gettime(1, 0x7ffeee24c660, 0x7ffeee24c690, 24) = 0
+[pid 88565] libstdc++.so.6->clock_gettime(1, 0x7ffe016ed1c0, 0x7ffe016ed140, 0x7f9276ad413a) = 0
+[pid 88566] libstdc++.so.6->clock_gettime(1, 0x7ffeee24c6d0, 0x7ffeee24c650, 0x7f97152d413a) = 0
+[pid 88565] libstdc++.so.6->clock_gettime(1, 0x7ffe016ed1c0, 0x97f0, 97) = 0
+[pid 88565] libstdc++.so.6->clock_gettime(1, 0x7ffe016ed190, 0x845eb680328c0, 24) = 0
+[pid 88565] libstdc++.so.6->clock_gettime(1, 0x7ffe016ed150, 0x7ffe016ed180, 24) = 0
+[pid 88566] libstdc++.so.6->clock_gettime(1, 0x7ffeee24c6d0, 0xaac0, 97) = 0
+[pid 88566] libstdc++.so.6->clock_gettime(1, 0x7ffeee24c6a0, 0x845eb6807b3d7, 24) = 0
+[pid 88566] libstdc++.so.6->clock_gettime(1, 0x7ffeee24c660, 0x7ffeee24c690, 24) = 0
+[pid 88565] libstdc++.so.6->clock_gettime(1, 0x7ffe016ed1c0, 0x7ffe016ed140, 0x7f9276ad413a) = 0
+[pid 88566] libstdc++.so.6->clock_gettime(1, 0x7ffeee24c6d0, 0x7ffeee24c650, 0x7f97152d413a <unfinished ...>
+[pid 88565] libstdc++.so.6->clock_gettime(1, 0x7ffe016ed1c0, 0x97f0, 97 <unfinished ...>
+[pid 88566] <... clock_gettime resumed> )        = 0
+[pid 88565] <... clock_gettime resumed> )        = 0
+[pid 88565] libstdc++.so.6->clock_gettime(1, 0x7ffe016ed190, 0x845eb7fdaacc0, 24) = 0
+[pid 88565] libstdc++.so.6->clock_gettime(1, 0x7ffe016ed150, 0x7ffe016ed180, 24) = 0
+[pid 88566] libstdc++.so.6->clock_gettime(1, 0x7ffeee24c6d0, 0xaac0, 97) = 0
+[pid 88566] libstdc++.so.6->clock_gettime(1, 0x7ffeee24c6a0, 0x845eb7fdf37d7, 24) = 0
+[pid 88566] libstdc++.so.6->clock_gettime(1, 0x7ffeee24c660, 0x7ffeee24c690, 24) = 0
+[pid 88565] libstdc++.so.6->clock_gettime(1, 0x7ffe016ed1c0, 0x7ffe016ed140, 0x7f9276ad413a) = 0
+[pid 88566] libstdc++.so.6->clock_gettime(1, 0x7ffeee24c6d0, 0x7ffeee24c650, 0x7f97152d413a <unfinished ...>
+[pid 88565] libstdc++.so.6->clock_gettime(1, 0x7ffe016ed1c0, 0x97f0, 97 <unfinished ...>
+[pid 88566] <... clock_gettime resumed> )        = 0
+[pid 88565] <... clock_gettime resumed> )        = 0
+[pid 88565] libstdc++.so.6->clock_gettime(1, 0x7ffe016ed190, 0x845eb97b230c0, 24) = 0
+[pid 88565] libstdc++.so.6->clock_gettime(1, 0x7ffe016ed150, 0x7ffe016ed180, 24) = 0
+[pid 88566] libstdc++.so.6->clock_gettime(1, 0x7ffeee24c6d0, 0xaac0, 97) = 0
+[pid 88566] libstdc++.so.6->clock_gettime(1, 0x7ffeee24c6a0, 0x845eb97b6bbd7, 24) = 0
+[pid 88566] libstdc++.so.6->clock_gettime(1, 0x7ffeee24c660, 0x7ffeee24c690, 24) = 0
+[pid 88565] libstdc++.so.6->clock_gettime(1, 0x7ffe016ed1c0, 0x7ffe016ed140, 0x7f9276ad413a) = 0
+[pid 88566] libstdc++.so.6->clock_gettime(1, 0x7ffeee24c6d0, 0x7ffeee24c650, 0x7f97152d413a <unfinished ...>
+[pid 88565] libstdc++.so.6->clock_gettime(1, 0x7ffe016ed1c0, 0x97f0, 97 <unfinished ...>
+[pid 88566] <... clock_gettime resumed> )        = 0
+[pid 88565] <... clock_gettime resumed> )        = 0
+[pid 88565] libstdc++.so.6->clock_gettime(1, 0x7ffe016ed190, 0x845ebaf89b4c0, 24) = 0
+[pid 88565] libstdc++.so.6->clock_gettime(1, 0x7ffe016ed150, 0x7ffe016ed180, 24) = 0
+[pid 88566] libstdc++.so.6->clock_gettime(1, 0x7ffeee24c6d0, 0xaac0, 97) = 0
+[pid 88566] libstdc++.so.6->clock_gettime(1, 0x7ffeee24c6a0, 0x845ebaf8e3fd7, 24) = 0
+[pid 88566] libstdc++.so.6->clock_gettime(1, 0x7ffeee24c660, 0x7ffeee24c690, 24) = 0
+[pid 88565] libstdc++.so.6->clock_gettime(1, 0x7ffe016ed1c0, 0x7ffe016ed140, 0x7f9276ad413a) = 0
+[pid 88566] libstdc++.so.6->clock_gettime(1, 0x7ffeee24c6d0, 0x7ffeee24c650, 0x7f97152d413a) = 0
+[pid 88565] libstdc++.so.6->clock_gettime(1, 0x7ffe016ed1c0, 0x97f0, 97) = 0
+Deadlines missed for task simple_task: 0 / 20
+Max running time for task simple_task: 0.000350861 secs
+[pid 88565] +++ exited (status 0) +++
+[pid 88563] --- SIGCHLD (Child exited) ---
+[pid 88566] libstdc++.so.6->clock_gettime(1, 0x7ffeee24c6d0, 0xaac0, 97) = 0
+[pid 88566] libstdc++.so.6->clock_gettime(1, 0x7ffeee24c6a0, 0x845ebc765c3d7, 24) = 0
+[pid 88566] libstdc++.so.6->clock_gettime(1, 0x7ffeee24c660, 0x7ffeee24c690, 24) = 0
+[pid 88566] libstdc++.so.6->clock_gettime(1, 0x7ffeee24c6d0, 0x7ffeee24c650, 0x7f97152d413a) = 0
+[pid 88566] libstdc++.so.6->clock_gettime(1, 0x7ffeee24c6d0, 0xaac0, 97) = 0
+[pid 88566] libstdc++.so.6->clock_gettime(1, 0x7ffeee24c6a0, 0x845ebdf3d47d7, 24) = 0
+[pid 88566] libstdc++.so.6->clock_gettime(1, 0x7ffeee24c660, 0x7ffeee24c690, 24) = 0
+[pid 88566] libstdc++.so.6->clock_gettime(1, 0x7ffeee24c6d0, 0x7ffeee24c650, 0x7f97152d413a) = 0
+[pid 88566] libstdc++.so.6->clock_gettime(1, 0x7ffeee24c6d0, 0xaac0, 97) = 0
+[pid 88566] libstdc++.so.6->clock_gettime(1, 0x7ffeee24c6a0, 0x845ebf714cbd7, 24) = 0
+[pid 88566] libstdc++.so.6->clock_gettime(1, 0x7ffeee24c660, 0x7ffeee24c690, 24) = 0
+[pid 88566] libstdc++.so.6->clock_gettime(1, 0x7ffeee24c6d0, 0x7ffeee24c650, 0x7f97152d413a) = 0
+[pid 88566] libstdc++.so.6->clock_gettime(1, 0x7ffeee24c6d0, 0xaac0, 97) = 0
+[pid 88566] libstdc++.so.6->clock_gettime(1, 0x7ffeee24c6a0, 0x845ec0eec4fd7, 24) = 0
+[pid 88566] libstdc++.so.6->clock_gettime(1, 0x7ffeee24c660, 0x7ffeee24c690, 24) = 0
+[pid 88566] libstdc++.so.6->clock_gettime(1, 0x7ffeee24c6d0, 0x7ffeee24c650, 0x7f97152d413a) = 0
+[pid 88566] libstdc++.so.6->clock_gettime(1, 0x7ffeee24c6d0, 0xaac0, 97) = 0
+[pid 88566] libstdc++.so.6->clock_gettime(1, 0x7ffeee24c6a0, 0x845ec26c3d3d7, 24) = 0
+[pid 88566] libstdc++.so.6->clock_gettime(1, 0x7ffeee24c660, 0x7ffeee24c690, 24) = 0
+[pid 88566] libstdc++.so.6->clock_gettime(1, 0x7ffeee24c6d0, 0x7ffeee24c650, 0x7f97152d413a) = 0
+[pid 88566] libstdc++.so.6->clock_gettime(1, 0x7ffeee24c6d0, 0xaac0, 97) = 0
+Deadlines missed for task simple_task: 0 / 20
+Max running time for task simple_task: 0.004460531 secs
+[pid 88566] +++ exited (status 0) +++
+[pid 88563] --- SIGCHLD (Child exited) ---
+All tasks finished
+[pid 88563] +++ exited (status 0) +++

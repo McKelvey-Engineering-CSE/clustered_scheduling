@@ -1,0 +1,94 @@
+execve("./clustering_launcher", ["./clustering_launcher", "simple_taskset"], 0x7ffd4f68d968 /* 19 vars */) = 0
+brk(NULL)                               = 0x2240000
+arch_prctl(0x3001 /* ARCH_??? */, 0x7ffce919aa70) = -1 EINVAL (Invalid argument)
+access("/etc/ld.so.preload", R_OK)      = -1 ENOENT (No such file or directory)
+openat(AT_FDCWD, "/etc/ld.so.cache", O_RDONLY|O_CLOEXEC) = 3
+fstat(3, {st_mode=S_IFREG|0644, st_size=61243, ...}) = 0
+mmap(NULL, 61243, PROT_READ, MAP_PRIVATE, 3, 0) = 0x7f93760ca000
+close(3)                                = 0
+openat(AT_FDCWD, "/lib64/libstdc++.so.6", O_RDONLY|O_CLOEXEC) = 3
+read(3, "\177ELF\2\1\1\3\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0\320\23\n\0\0\0\0\0"..., 832) = 832
+fstat(3, {st_mode=S_IFREG|0755, st_size=2314632, ...}) = 0
+mmap(NULL, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7f93760c8000
+mmap(NULL, 2263040, PROT_READ, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0x7f9375e00000
+mmap(0x7f9375e99000, 1097728, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x99000) = 0x7f9375e99000
+mmap(0x7f9375fa5000, 471040, PROT_READ, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x1a5000) = 0x7f9375fa5000
+mmap(0x7f9376018000, 57344, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x217000) = 0x7f9376018000
+mmap(0x7f9376026000, 10240, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0x7f9376026000
+close(3)                                = 0
+openat(AT_FDCWD, "/lib64/libm.so.6", O_RDONLY|O_CLOEXEC) = 3
+read(3, "\177ELF\2\1\1\3\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0\220\323\0\0\0\0\0\0"..., 832) = 832
+fstat(3, {st_mode=S_IFREG|0755, st_size=912440, ...}) = 0
+mmap(NULL, 893184, PROT_READ, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0x7f9375d25000
+mmap(0x7f9375d32000, 458752, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0xd000) = 0x7f9375d32000
+mmap(0x7f9375da2000, 376832, PROT_READ, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x7d000) = 0x7f9375da2000
+mmap(0x7f9375dfe000, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0xd8000) = 0x7f9375dfe000
+close(3)                                = 0
+openat(AT_FDCWD, "/lib64/libgcc_s.so.1", O_RDONLY|O_CLOEXEC) = 3
+read(3, "\177ELF\2\1\1\0\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0\3605\0\0\0\0\0\0"..., 832) = 832
+fstat(3, {st_mode=S_IFREG|0755, st_size=108136, ...}) = 0
+mmap(NULL, 107208, PROT_READ, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0x7f93760ad000
+mprotect(0x7f93760b0000, 90112, PROT_NONE) = 0
+mmap(0x7f93760b0000, 73728, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x3000) = 0x7f93760b0000
+mmap(0x7f93760c2000, 12288, PROT_READ, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x15000) = 0x7f93760c2000
+mmap(0x7f93760c6000, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x18000) = 0x7f93760c6000
+close(3)                                = 0
+openat(AT_FDCWD, "/lib64/libc.so.6", O_RDONLY|O_CLOEXEC) = 3
+read(3, "\177ELF\2\1\1\3\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0\220\227\2\0\0\0\0\0"..., 832) = 832
+pread64(3, "\6\0\0\0\4\0\0\0@\0\0\0\0\0\0\0@\0\0\0\0\0\0\0@\0\0\0\0\0\0\0"..., 784, 64) = 784
+pread64(3, "\4\0\0\0 \0\0\0\5\0\0\0GNU\0\2\0\0\300\4\0\0\0\3\0\0\0\0\0\0\0"..., 48, 848) = 48
+pread64(3, "\4\0\0\0\24\0\0\0\3\0\0\0GNU\0\327\212D\256\224\361\323 4.\17\366\3021[+"..., 68, 896) = 68
+fstat(3, {st_mode=S_IFREG|0755, st_size=2543976, ...}) = 0
+pread64(3, "\6\0\0\0\4\0\0\0@\0\0\0\0\0\0\0@\0\0\0\0\0\0\0@\0\0\0\0\0\0\0"..., 784, 64) = 784
+mmap(NULL, 2129840, PROT_READ, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0x7f9375a00000
+mmap(0x7f9375a28000, 1527808, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x28000) = 0x7f9375a28000
+mmap(0x7f9375b9d000, 360448, PROT_READ, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x19d000) = 0x7f9375b9d000
+mmap(0x7f9375bf5000, 24576, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x1f5000) = 0x7f9375bf5000
+mmap(0x7f9375bfb000, 53168, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0x7f9375bfb000
+close(3)                                = 0
+mmap(NULL, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7f93760ab000
+arch_prctl(ARCH_SET_FS, 0x7f93760ac180) = 0
+set_tid_address(0x7f93760ac450)         = 231479
+set_robust_list(0x7f93760ac460, 24)     = 0
+rseq(0x7f93760acb20, 0x20, 0, 0x53053053) = 0
+mprotect(0x7f9375bf5000, 16384, PROT_READ) = 0
+mprotect(0x7f93760c6000, 4096, PROT_READ) = 0
+mprotect(0x7f9375dfe000, 4096, PROT_READ) = 0
+mmap(NULL, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7f93760a9000
+mprotect(0x7f9376018000, 53248, PROT_READ) = 0
+mprotect(0x408000, 4096, PROT_READ)     = 0
+mprotect(0x7f937610d000, 8192, PROT_READ) = 0
+prlimit64(0, RLIMIT_STACK, NULL, {rlim_cur=8192*1024, rlim_max=RLIM64_INFINITY}) = 0
+munmap(0x7f93760ca000, 61243)           = 0
+getrandom("\x57\xfe\xbb\x85\x61\x8f\x42\x4c", 8, GRND_NONBLOCK) = 8
+brk(NULL)                               = 0x2240000
+brk(0x2261000)                          = 0x2261000
+newfstatat(AT_FDCWD, "simple_taskset.rtpt", {st_mode=S_IFREG|0644, st_size=154, ...}, 0) = 0
+newfstatat(AT_FDCWD, "simple_taskset.rtps", {st_mode=S_IFREG|0644, st_size=170, ...}, 0) = 0
+futex(0x7f93760266bc, FUTEX_WAKE_PRIVATE, 2147483647) = 0
+futex(0x7f93760266c8, FUTEX_WAKE_PRIVATE, 2147483647) = 0
+openat(AT_FDCWD, "simple_taskset.rtps", O_RDONLY) = 3
+read(3, "0\n0 3\nsimple_task 50 50\n0 150000"..., 8191) = 170
+read(3, "", 8191)                       = 0
+lseek(3, 0, SEEK_SET)                   = 0
+read(3, "0\n0 3\nsimple_task 50 50\n0 150000"..., 8191) = 170
+write(2, "Taskset is schedulable: simple_t"..., 39) = 39
+openat(AT_FDCWD, "/dev/shm/RT_GOMP_CLUSTERING_BARRIER", O_RDWR|O_CREAT|O_NOFOLLOW|O_CLOEXEC, 0600) = 4
+ftruncate(4, 4)                         = 0
+mmap(NULL, 4, PROT_READ|PROT_WRITE, MAP_SHARED, 4, 0) = 0x7f93760d8000
+close(4)                                = 0
+munmap(0x7f93760d8000, 4)               = 0
+write(2, "Forking and execv-ing task simpl"..., 39) = 39
+clone(child_stack=NULL, flags=CLONE_CHILD_CLEARTID|CLONE_CHILD_SETTID|SIGCHLD, child_tidptr=0x7f93760ac450) = 231480
+write(2, "Forking and execv-ing task simpl"..., 39) = 39
+clone(child_stack=NULL, flags=CLONE_CHILD_CLEARTID|CLONE_CHILD_SETTID|SIGCHLD, child_tidptr=0x7f93760ac450) = 231481
+close(3)                                = 0
+write(2, "All tasks started\n", 18)     = 18
+wait4(-1, NULL, 0, NULL)                = 231480
+--- SIGCHLD {si_signo=SIGCHLD, si_code=CLD_EXITED, si_pid=231480, si_uid=0, si_status=0, si_utime=0, si_stime=0} ---
+wait4(-1, NULL, 0, NULL)                = 231481
+--- SIGCHLD {si_signo=SIGCHLD, si_code=CLD_EXITED, si_pid=231481, si_uid=0, si_status=0, si_utime=11, si_stime=0} ---
+wait4(-1, NULL, 0, NULL)                = -1 ECHILD (No child processes)
+write(2, "All tasks finished\n", 19)    = 19
+exit_group(0)                           = ?
++++ exited with 0 +++
